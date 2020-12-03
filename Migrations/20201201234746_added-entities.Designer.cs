@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UluGidaGroup.Models.Context;
 
 namespace UluGidaGroup.Migrations
 {
     [DbContext(typeof(UluContext))]
-    partial class UluContextModelSnapshot : ModelSnapshot
+    [Migration("20201201234746_added-entities")]
+    partial class addedentities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace UluGidaGroup.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("UluGidaGroup.Models.Entity.AppDetail", b =>
+            modelBuilder.Entity("QonaqWebApp.Models.Entity.AppDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +75,7 @@ namespace UluGidaGroup.Migrations
                     b.ToTable("AppDetails");
                 });
 
-            modelBuilder.Entity("UluGidaGroup.Models.Entity.Customer", b =>
+            modelBuilder.Entity("QonaqWebApp.Models.Entity.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -107,17 +109,14 @@ namespace UluGidaGroup.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("UluGidaGroup.Models.Entity.Order", b =>
+            modelBuilder.Entity("QonaqWebApp.Models.Entity.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MenuItemId")
+                    b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ProductId")
@@ -138,7 +137,7 @@ namespace UluGidaGroup.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("UluGidaGroup.Models.Entity.Product", b =>
+            modelBuilder.Entity("QonaqWebApp.Models.Entity.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -149,7 +148,7 @@ namespace UluGidaGroup.Migrations
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
 
-                    b.Property<decimal?>("Price")
+                    b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProductDescription")
@@ -171,7 +170,7 @@ namespace UluGidaGroup.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("UluGidaGroup.Models.Entity.ProductGroup", b =>
+            modelBuilder.Entity("QonaqWebApp.Models.Entity.ProductGroup", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -188,23 +187,21 @@ namespace UluGidaGroup.Migrations
                     b.ToTable("ProductGroups");
                 });
 
-            modelBuilder.Entity("UluGidaGroup.Models.Entity.Order", b =>
+            modelBuilder.Entity("QonaqWebApp.Models.Entity.Order", b =>
                 {
-                    b.HasOne("UluGidaGroup.Models.Entity.Customer", "Customer")
+                    b.HasOne("QonaqWebApp.Models.Entity.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
 
-                    b.HasOne("UluGidaGroup.Models.Entity.Product", "Product")
+                    b.HasOne("QonaqWebApp.Models.Entity.Product", "Product")
                         .WithMany("Orders")
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("UluGidaGroup.Models.Entity.Product", b =>
+            modelBuilder.Entity("QonaqWebApp.Models.Entity.Product", b =>
                 {
-                    b.HasOne("UluGidaGroup.Models.Entity.ProductGroup", "ProductGroup")
-                        .WithMany("Products")
+                    b.HasOne("QonaqWebApp.Models.Entity.ProductGroup", "ProductGroup")
+                        .WithMany("products")
                         .HasForeignKey("ProductGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

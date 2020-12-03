@@ -1,29 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using UluGidaGroup.Models;
+using UluGidaGroup.AppCode.Infrastructure;
+using UluGidaGroup.Models.Entity;
 
 namespace UluGidaGroup.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        public readonly IRepository<AppDetail> appDetailRepo;
+        public readonly IRepository<Product> productRepo;
+        public readonly IRepository<ProductGroup> productGroupRepo;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+        public HomeController(  IRepository<AppDetail> appDetailRepo,
+                                IRepository<Product> productRepo,
+                                IRepository<ProductGroup> productGroupRepo)
+        {                                                          
+            this.appDetailRepo = appDetailRepo;
+            this.productRepo = productRepo;
+            this.productGroupRepo = productGroupRepo;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var prod = productGroupRepo.GetAll().Include(x => x.Products).Where(x => x.Products.Any()).ToList();
+            return View(prod);
         }
 
         public IActionResult Shop()
+        {
+            return View();
+        }       
+        public IActionResult Blog()
         {
             return View();
         }

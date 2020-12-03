@@ -8,7 +8,10 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
-using UluGida.Models.Context;
+using UluGidaGroup.AppCode.Infrastructure;
+using UluGidaGroup.AppCode.Repositories;
+using UluGidaGroup.Models.Context;
+using UluGidaGroup.Models.Entity;
 
 namespace UluGidaGroup
 {
@@ -36,19 +39,16 @@ namespace UluGidaGroup
             services.AddDbContext<UluContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("UluDBString")));
 
-            //RepositoryDIImplementation(services);
+            RepositoryDIImplementation(services);
         }
 
         private void RepositoryDIImplementation(IServiceCollection services)
         {
-            //services.AddScoped<IRepository<AppDetail>, AppDetailRepository>();
-            //services.AddScoped<IRepository<MenuItem>, MenuItemRepository>();
-            //services.AddScoped<IRepository<MenuItemGroup>, MenuItemGroupRepository>();
-            //services.AddScoped<IRepository<Reservation>, ReservationRepository>();
-            //services.AddScoped<IRepository<DineInTable>, DineInTableRepository>();
-            //services.AddScoped<IRepository<DineInTableGroup>, DineInTableGroupRepository>();
-            //services.AddScoped<IRepository<Order>, OrderRepository>();
-            //services.AddScoped<IRepository<Customer>, CustomerRepository>();
+            services.AddScoped<IRepository<AppDetail>, AppDetailRepository>();
+            services.AddScoped<IRepository<Product>, ProductRepository>();
+            services.AddScoped<IRepository<ProductGroup>, ProductGroupRepository>();
+            services.AddScoped<IRepository<Order>, OrderRepository>();
+            services.AddScoped<IRepository<Customer>, CustomerRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -84,7 +84,7 @@ namespace UluGidaGroup
                     name: "areas",
                     pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
                     //defaults: new { area = "Admin", controller = "Dashboard", action = "Index" }
-                    );                    
+                    );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -1,26 +1,26 @@
-﻿
-@model List<ProductGroup>
-<!-- Hero Section Begin -->
+﻿<!-- Hero Section Begin -->
 <section class="hero">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 row">
-                <div class="hero_logo col-lg-12 col-md-6 col-sm-6 col-6">
-                    <img src="~/img/logo-text.png" />
-                </div>
-                <div class="hero_logo_text col-lg-12 col-md-6 col-sm-6 col-6">
-                    <h5 class="hero_logo_text_header">
-                        Enginarın Yararları Nelerdir?
-                        <small>
-                            <br />
-                            <br />&#10003 Kötü kolesterolü düşürür.
-                            <br />&#10003 Sindrim sistemini güçlendirir.
-                            <br />&#10003 Mideyi korur.
-                            <br />&#10003 Kan hücrelerini göçlendirir.
-                            <br />&#10003 Kilo verme sürecini desktekler.
-                            <br />&#10003 Karaciğeri temizler.
-                        </small>
-                    </h5>
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Bütün Çeşidler</span>
+                    </div>
+                    <ul>
+                        <li><a href="#">Acı ve Tatlı Bibər Salçası</a></li>
+                        <li><a href="#">Domates Salçası</a></li>
+                        <li><a href="#">Karışık Salça</a></li>
+                        <li><a href="#">Siyah Zeytin</a></li>
+                        <li><a href="#">Ketçap ve Acı Bibər Sosu</a></li>
+                        <li><a href="#">Nar Aromalı Soslar</a></li>
+                        <li><a href="#">Közlenmiş Ürünlər</a></li>
+                        <li><a href="#">Pul Bibər</a></li>
+                        <li><a href="#">Çiğ Köfte Seti</a></li>
+                        <li><a href="#">Kurutulmuş Ürünlər</a></li>
+                        <li><a href="#">Siyah Zeytin</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="col-lg-9">
@@ -58,6 +58,7 @@
     </div>
 </section>
 <!-- Hero Section End -->
+
 <!-- Categories Section Begin -->
 <section class="categories">
     <div class="container">
@@ -103,37 +104,197 @@
                 </div>
                 <div class="featured__controls">
                     <ul>
-                        <li class="active" data-filter="*">Tümü</li>
-                        @foreach (var group in Model)
-                        {
-                            <li data-filter=".cat@{@group.Id}">@group.ProductGroupName</li>
-                        }
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".cat1">Salça</li>
+                        <li data-filter=".cat2">Siyah Zeytin</li>
+                        <li data-filter=".cat3">Biber</li>
+                        <li data-filter=".cat4">Sos</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row featured__filter">
-            @foreach (var group in Model)
-            {
-                @foreach (var item in group.Products)
-                {
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix cat@{@group.Id} ">
-                        <div class="featured__item">
-                            <div class="featured__item__pic set-bg" data-setbg="../img/product/@item.ImagePath">
-                                <ul class="featured__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="featured__item__text">
-                                <h6><a href="#">@item.ProductName</a></h6>
-                                <h5>@item.ProductDescription</h5>
-                            </div>
-                        </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat3">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/koz-biber-680.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
                     </div>
-                }
-            }
+                    <div class="featured__item__text">
+                        <h6><a href="#">Köz Biber</a></h6>
+                        <h5>&#8380 15.90</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat1">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/tatli-biber-salca-700.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Tatlı Biber Salçası</a></h6>
+                        <h5>&#8380 21.30</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat2">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/siyah-zeytin.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Siyah Zeytin</a></h6>
+                        <h5>&#8380 20.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat3">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/pulbiber-200.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Pul Biber</a></h6>
+                        <h5>&#8380 10.90</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat1">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/karisik-salca-700.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Karışık Salça</a></h6>
+                        <h5>&#8380 18.50</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat4">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/ketcup400.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Ketçap</a></h6>
+                        <h5>&#8380 5.40</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat3">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/tatlitozbiber-500.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Tatlı Toz Biber</a></h6>
+                        <h5>&#8380 10.90</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat3">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/isot-200.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">İsot</a></h6>
+                        <h5>&#8380 10.90</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat1">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/aci-biber-salca-700.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Acı Biber Salçası</a></h6>
+                        <h5>&#8380 32.50</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat4">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/aciketcap-9000.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Acı Ketçap</a></h6>
+                        <h5>&#8380 28.50</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat2">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/siyah-zeytin-t.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Siyah Zeytin Teneke</a></h6>
+                        <h5>&#8380 22.30</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cat1">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="../img/product/domates-salca-700.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Domates Salçası</a></h6>
+                        <h5>&#8380 29.90</h5>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -203,7 +364,7 @@
                                 sorununu önler. Osteoartirit tipi romatizmal sorunları azaltabilir.
                                 Bağışıklık sitemini destekler
                             </span>
-                            <a onclick="read_more(this)" id="mybtn" class="btn btn-outline-success rounded-pill btn-sm">daha fazla</a>
+                            <a onclick="read_more(this)" id="mybtn" class="btn btn-outline-success btn-sm">daha fazla</a>
                         </p>
                     </div>
                 </div>
@@ -225,7 +386,7 @@
                             <span id="more">
                                 pul biber portakaldan 3 kat daha fazla C vitamini içeriyor. Kırmızı biberde bulunan "fenolin" adlı antioksidan madde felç riskini azaltır ve kalbe iyi gelir. Kırmızı biberin renk maddesi "likopen" ise bağırsak, rahim ve prostat kanserinden korur. Kırmızı biberdeki "β-karoten", A vitamininin ön maddesi olup (Pro vitamin A) bağışıklık sistemini güçlendirir. β-karoten, sebze ve meyvede bulunur ve vücutta A vitaminine dönüşür. Kırmızı biberdeki, "capsaisin" ise prostat tümörlerini yok eder. Kırmızı biberde bulunan capsantin adlı madde zona hastalığının neden olduğu ağrıları dindirmek için yapılan kremlerde kullardır.
                             </span>
-                            <a onclick="read_more(this)" id="mybtn" class="btn btn-outline-success rounded-pill btn-sm">daha fazla</a>
+                            <a onclick="read_more(this)" id="mybtn" class="btn btn-outline-success btn-sm">daha fazla</a>
                         </p>
                     </div>
                 </div>
@@ -247,7 +408,7 @@
                             <span id="more">
                                 Alzheimer, iyi huylu ve habis tümör gibi dejeneratif hastalıkların, daha az ciddiyetli varikoz damarları ve boşlukları da dâhil olmak üzere etkilerini azaltır. Miyokard enfarktüsü veya derin damar trombozu (DVT) ile sonuçlanabilecek kan pıhtını önlemeye yardımcı olur. Hücre zarlarını kanser gibi hastalıklara karşı korur. Anemiye karşı mükemmel bir korumadır. Doğurganlığı ve üreme sistemini geliştirir. Özellikle oksidatif stres ve kronik viral hastalıklar sırasında sağlıklı bir bağışıklık sisteminin korunmasında önemli bir rol oynamaktadır. Besleyici ve sodyum, potasyum, magnezyum, demir, fosfor ve iyot gibi mineral içeriği bakımından zengindir. Gerekli vitaminleri ve amino asitleri sağlarlar. Kalbi korumak için yararlı özelliklere sahip olan oleik asidi içerir. Beyindeki oksidatif stresini azaltan doğal bir kimyasal olan polifenoller içerir. Böylece günlük porsiyon bir zeytin yiyerek hafızanızı% 25’e varan oranda geliştirmeye yardımcı olur. Sadece bir fincan zeytin büyük bir demir oranı – 4.4 mg. Cilt yumuşaklığını ve cildi sağlıklı tutan oleik asidi içerdiği için kırışıklıkların görünümünü% 20 oranında azaltabilir.
                             </span>
-                            <a onclick="read_more(this)" id="mybtn" class="btn btn-outline-success rounded-pill btn-sm">daha fazla</a>
+                            <a onclick="read_more(this)" id="mybtn" class="btn btn-outline-success btn-sm">daha fazla</a>
                         </p>
                     </div>
                 </div>
@@ -276,12 +437,12 @@
                 moretext.style.display = 'none';
                 readBtn.text = "daha fazla";
             }
-            else {
+            else { 
                 dots.style.display = 'none';
                 moretext.style.display = 'inline';
                 readBtn.text = "kısalt";
             }
-            return false;
+
         }
     </script>
 }

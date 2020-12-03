@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QonaqWebApp.Models.Entity
+namespace UluGidaGroup.Models.Entity
 {
     public class BaseEntity
     {

@@ -568,6 +568,15 @@ ol {
     padding-bottom: 50px;
 }
 
+    .hero .hero_logo_text {
+        margin: auto;
+    }
+
+    .hero .hero_logo_text_header {
+        color: #7fad39;
+        font-weight: 600;
+    }
+
     .hero.hero-normal {
         padding-bottom: 30px;
     }
@@ -2962,7 +2971,7 @@ ol {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .header__menu ul li {
-        margin-right: 3vw;
+        margin-right: 2vw;
     }
 
     .hero__search__form {
@@ -3002,7 +3011,7 @@ ol {
     }
 
     .hero__search__form {
-        width: 485px;
+        width: 460px;
     }
 
     .categories__slider.owl-carousel .owl-nav button {

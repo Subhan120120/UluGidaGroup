@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using QonaqWebApp.Models.Entity;
+using UluGidaGroup.Models.Entity;
 
-namespace UluGida.Models.Context
+namespace UluGidaGroup.Models.Context
 {
     public class UluContext : DbContext
     {
@@ -9,6 +9,10 @@ namespace UluGida.Models.Context
             : base(options) { }
 
         public DbSet<AppDetail> AppDetails { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductGroup> ProductGroups { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
