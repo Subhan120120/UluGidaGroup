@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using UluGidaGroup.AppCode.Infrastructure;
 using UluGidaGroup.Models.Entity;
@@ -11,26 +12,35 @@ namespace UluGidaGroup.Controllers
         public readonly IRepository<AppDetail> appDetailRepo;
         public readonly IRepository<Product> productRepo;
         public readonly IRepository<ProductGroup> productGroupRepo;
+        public readonly IRepository<Dealer> dealerRepo;
 
-        public HomeController(  IRepository<AppDetail> appDetailRepo,
+        public HomeController(IRepository<AppDetail> appDetailRepo,
                                 IRepository<Product> productRepo,
-                                IRepository<ProductGroup> productGroupRepo)
-        {                                                          
+                                IRepository<ProductGroup> productGroupRepo,
+                                IRepository<Dealer> dealerRepo)
+        {
             this.appDetailRepo = appDetailRepo;
             this.productRepo = productRepo;
             this.productGroupRepo = productGroupRepo;
+            this.dealerRepo = dealerRepo;
         }
 
         public IActionResult Index()
         {
-            var prod = productGroupRepo.GetAll().Include(x => x.Products).Where(x => x.Products.Any()).ToList();
-            return View(prod);
+            List<ProductGroup> products = productGroupRepo.GetAll().Include(x => x.Products).Where(x => x.Products.Any()).ToList();
+            return View(products);
         }
 
-        public IActionResult Shop()
+        public IActionResult Dealers()
+        {
+            List<Dealer> dealers = dealerRepo.GetAll().OrderBy(x => x.OrderNumber).ToList();
+            return View(dealers);
+        }
+        public IActionResult Contact()
         {
             return View();
-        }       
+        }
+
         public IActionResult Blog()
         {
             return View();

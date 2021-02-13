@@ -49,6 +49,7 @@ namespace UluGidaGroup
             services.AddScoped<IRepository<ProductGroup>, ProductGroupRepository>();
             services.AddScoped<IRepository<Order>, OrderRepository>();
             services.AddScoped<IRepository<Customer>, CustomerRepository>();
+            services.AddScoped<IRepository<Dealer>, DealerRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

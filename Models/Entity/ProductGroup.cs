@@ -8,8 +8,13 @@ namespace UluGidaGroup.Models.Entity
     {
         [DisplayName("Grub Adı")]
         [Required(ErrorMessage = "Boş buraxıla bilməz. ")]
-        [MaxLength(40, ErrorMessage = "{0} {1} simvoldan artıq ola bilməz.")]
+        [MaxLength(50, ErrorMessage = "{0} {1} simvoldan artıq ola bilməz.")]
         public string ProductGroupName { get; set; }
+
+        [DisplayName("Grup Resim")]
+        [MaxLength(150, ErrorMessage = "{0} {1} simvoldan artıq ola bilməz.")]
+        public string ImagePath { get; set; }
+
         public virtual List<Product> Products { get; set; }
     }
 }

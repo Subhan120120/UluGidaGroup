@@ -178,7 +178,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="WebEssentials.AspNetCore.OutputCaching" Version="1.0.28" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\dealers\" />
   </ItemGroup>
 
 </Project>

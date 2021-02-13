@@ -35,6 +35,6 @@ namespace UluGidaGroup.Models.Entity
         public virtual ProductGroup ProductGroup { get; set; }
         public virtual List<Order> Orders { get; set; }
 
-
+        public int OrderNumber { get; set; }
     }
 }

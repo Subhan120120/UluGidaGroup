@@ -13,6 +13,7 @@ namespace UluGidaGroup.Models.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductGroup> ProductGroups { get; set; }
+        public DbSet<Dealer> Dealers { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
